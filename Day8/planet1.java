@@ -3,14 +3,15 @@ import java.util.Scanner;
 public class planet1 
 {
 String name,color,rings;
-double gravity;
+double gravity,temp;
 int moon;
 
-void add(String n,String c,int m,double g,String r){
+void add(String n,String c,int m,double g,double t,String r){
 	name=n;
 	color=c;
 	moon=m;
 	gravity=g;
+	temp=t;
 	rings=r;
 }
 void display(){
@@ -19,6 +20,7 @@ void display(){
         System.out.println("Colour: "+color);
         System.out.println("Number of Moons: "+moon);
         System.out.println("Gravity of "+name+" : "+gravity+" m/s^2");
+        System.out.println("Mean Temprature: "+temp+" °C");
         System.out.println("Rings Available:"+rings);
 }
 
@@ -36,49 +38,49 @@ do
 switch(ch){
 	case 1:{
 	planet1 p1=new planet1();
-	p1.add("Mercury","Gray",0,3.7 ,"NO");
+	p1.add("Mercury","Gray",0,3.7,167,"NO");
 	p1.display();
 	break;
 	}
 	case 2:{
 	planet1 p2=new planet1();
-	p2.add("Venus","Pale Yellow",0,8.9 ,"NO");
+	p2.add("Venus","Pale Yellow",0,8.9,464,"NO");
 	p2.display();
 	break;
 	}
 	case 3:{
 	planet1 p3=new planet1();
-	p3.add("Earth","Blue with White Clouds",1,9.8,"NO");
+	p3.add("Earth","Blue with White Clouds",1,9.8,15,"NO");
 	p3.display();
 	break;
 	}
 	case 4:{
 	planet1 p4=new planet1();
-	p4.add("Mars","Reddish Brown",2,3.7,"NO");
+	p4.add("Mars","Reddish Brown",2,3.7,-65,"NO");
 	p4.display();
 	break;
 	}
 	case 5:{
 	planet1 p5=new planet1();
-	p5.add("Jupitor","Orange With White Bands",63,23.1,"YES");
+	p5.add("Jupitor","Orange With White Bands",63,23.1,-110,"YES");
 	p5.display();
 	break;
 	}
 	case 6:{
 	planet1 p6=new planet1();
-	p6.add("Saturn","Pale Gold",62,9.0,"YES");
+	p6.add("Saturn","Pale Gold",62,9.0,-140,"YES");
 	p6.display();
 	break;
 	}
 	case 7:{
 	planet1 p7=new planet1();
-	p7.add("Uranus","Pale Blue",27,8.7,"YES");
+	p7.add("Uranus","Pale Blue",27,8.7,-195,"YES");
 	p7.display();
 	break;
 	}
 	case 8:{
 	planet1 p8=new planet1();
-	p8.add("Naptune","Pale Blue",13,11.0,"YES");
+	p8.add("Naptune","Pale Blue",13,11.0,-200,"YES");
 	p8.display();
 	break;
 	}
