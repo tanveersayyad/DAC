@@ -1,0 +1,15 @@
+class number
+{
+	public static void main(String agrs[])
+	{
+  	int n=10,sum=0,int i=0;
+	while(sum<=n)
+	{
+		sum=sum+i;
+		i++;
+	}
+	
+	
+
+	}
+}

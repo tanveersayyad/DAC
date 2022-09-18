@@ -1,0 +1,21 @@
+class hello1
+{
+	public static void main(String[] args)
+{
+	System.out.println("Hello1");
+}
+}
+class hello2
+{
+	public static void main(String[] args)
+{
+	System.out.println("Hello2");
+}
+}
+class hello
+{
+	public static void main(String[] args)
+{
+	System.out.println("Hello");
+}
+}
