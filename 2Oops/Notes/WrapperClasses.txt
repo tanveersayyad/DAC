@@ -1,0 +1,101 @@
+Eight primitive types:
+byte
+short
+int
+long
+float
+double
+char
+boolean
+
+Some classes in java works only with Object or we can say at some places we must have objects to do the operations. In such scenario, wrapper class plays a major role. In the collection framework and in generics, only object is required there to do any operation. These can not work with primitive type.
+
+
+Wrapper classes are basically used to wrap the primitive type into objects. Following are the wrapper classes:
+
+Byte
+Short
+Integer
+Long
+Float
+Double
+Character
+Boolean
+
+
+Number is the superclass of all the wrapper classes and it is an abstract class. So, we can not create object of class Number.
+
+//Creating object of Double
+Double dobj = new Double(53.5);			//Primitive to Double Wrapper
+
+Double dobj = new Double("53.5");		//String to Double Wrapper
+
+Double dobj = Double.valueOf("53.5");		//String to Double Wrapper
+
+double dp = Double.parseDouble("53.5");		//String to primitive double
+
+double dp = dobj.doubleValue();			//Double object to primitive double
+
+Double dobj1 = new Double("53.5");
+
+dobj.compareTo(dobj1);
+	-- will return 0 if dobj == dobj1
+	-- will return 1 if dobj > dobj1
+	-- will return -1 if dobj < dobj1
+
+-- Each wrapper class has overridden the toString() method of the Object class.
+
+//Creating object of Integer
+Integer iobj = new Integer(56);
+Integer iobj = new Integer("56");
+
+int ip = Integer.parseInt("537");		//String to primitive int
+
+======================================================================
+-- wrapper classes override toString() and equals() method. Here equals() method compares the content and not the references.
+
+
+class WrapperDemo
+{
+        public static void main(String args[])
+        {
+                //Double dobj = new Double(53.5);
+                //Double dobj = new Double("53.5");
+                Double dobj = Double.valueOf("53.5");
+                double dp = Double.parseDouble("53.5");
+                
+                Double dobj1 = new Double("53.5");
+                
+                int ip = Integer.parseInt("537");
+                
+                String s = dobj.toString();		//Returns String representation of the double value
+                //System.out.println(d);		//System.out.println(d.toString());
+                int res = dobj.compareTo(dobj1);
+                System.out.println("dobj.compareTo(dobj1) : "+res);
+                
+                double dp1 = dobj1.doubleValue();
+                byte bp = dobj1.byteValue();	//bp will have value 2
+                int ip1 = dobj1.intValue();	//ip1 will have value 258
+                
+                System.out.println(dobj.equals(dobj1));
+                
+                Integer iobj = new Integer("567");
+                Integer iobj1 = new Integer("566");
+                System.out.println(iobj.equals(iobj1));
+                      
+        }
+}   
+
+===============================================================================
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,169 @@
+functions -> methods -> procdures
+
+function
+data on which function operates/works
+
+program => functions + data
+
+Inheritance => Parent child relationship
+
+Father has a car
+Son will also have that car
+Son has purchased bike/smart phones
+
+
+
+Cricketer
+{
+	name
+	country
+	
+	printName();
+	printCountry();
+}
+
+Batsman
+{
+	totalRuns;
+	printTotalRuns();
+}
+
+Bowler
+{
+	totalWickets;
+	printTotalWickets();
+}
+
+
+
+Batsman and Bowler class are child class of Cricketer.
+
+
+
+Employees
+{
+	empName;
+	empId;
+	department;
+	designation;
+	joiningDate;
+	gender;
+	contactNo;
+	accountNo;
+	commonRules;
+	salary;
+	address;
+	qualification;
+	emailId;
+	
+	printSalary();
+	printPersonalDetails();
+}
+
+RegularEmployee
+{
+	retirementDate;
+	payScale; 
+	rulesForRegularEmp;
+	
+	printRetirementDate();
+	printPayScale();
+}
+
+ContractBasedEmployee
+{
+	remainingYearsOfService;
+	consolidatedSalary;
+	rulesForContractBasedEmp;
+	
+	printRemainingYearsOfService();	
+}
+
+
+
+
+Shape
+{
+	calculateArea();
+}
+
+Rectangle
+{
+	calculateArea();
+}
+
+
+Square
+{
+	calculateArea();
+}
+
+
+Circle
+{
+	calculateArea();
+}
+
+
+
+Find area of a shape.
+Rectangle
+len,br
+area
+
+Square
+side
+area
+
+Circle
+radius
+area
+
+
+calculateShapeArea =>  either rectangle,square,circle shape calculation method.
+
+
+java code  => intermediate code (byte code) => jvm (java interpreter) => machine code
+
+
+javac MyFirstProgram.java => MyFirstProgram.class
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

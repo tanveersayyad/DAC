@@ -1,0 +1,552 @@
+parent class => base class/super class
+child class =>  derived class/subclass
+
+The keyword 'extends' is used for inheritance.
+
+class Crickteter
+{
+	String name;
+	String country;
+	int totMatches;
+}
+
+class Batsman extends Cricketer		//Now Batsman is the child class of Cricketer
+{
+	int totRuns;
+}
+
+
+class Batsman extends Cricketer
+
+It says:
+-- class Batsman is the child class of Cricketer
+-- It will have all the properties (name,country,totMatches) from its parent class 
+i.e. Crickter and will have some of its own property(totRuns).
+
+Whenever we create any object of Batsman class it will occupy space to store (name, country, totMatches, totRuns)
+
+new Batsman();
+
+int marks[];
+int [] marks;
+==============================================================================
+
+class Crickteter
+{
+	String name;
+	String country;
+	int totMatches;
+	
+	void setDetails(String name, String country, int totMatches)
+	{
+		this.name = name;
+		this.country = country;
+		this.totMatches = totMatches;
+	}
+	
+	void printDetails()
+	{
+		System.out.println(name);
+		System.out.println(country);
+		System.out.println(totMatches);
+	}
+}
+
+class Batsman extends Cricketer		//Now Batsman is the child class of Cricketer
+{
+	int totRuns;
+}
+
+class Bowler extends Cricketer		//Now Bowler is the child class of Cricketer
+{
+	int totWickets;
+}
+
+class CricketerDemo
+{
+	public static void main(String args[])
+	{
+		Cricketer c1 = new Cricketer();
+		c1.setDetails("Sachin","India",400);
+		c1.printDetails();
+	}
+}
+
+
+-- Inside parent class, we can not access child class members (data & method).
+
+CricketerDemo.java
+--------------------
+
+class Cricketer
+{
+	String name;
+	String country;
+	int totMatches;
+	
+	void setDetails(String name, String country, int totMatches)
+	{
+		this.name = name;
+		this.country = country;
+		this.totMatches = totMatches;
+	}
+	
+	void printDetails()
+	{
+		System.out.println(name);
+		System.out.println(country);
+		System.out.println(totMatches);
+	}
+}
+
+class Batsman extends Cricketer		//Now Batsman is the child class of Cricketer
+{
+	int totRuns;
+	
+	void setTotRuns(int totRuns)
+	{
+		this.totRuns = totRuns;
+	}
+	
+	void printTotRuns()
+	{
+		System.out.println(totRuns);
+	}
+	
+	void printBatsDetails()
+	{
+		System.out.println(name);
+		System.out.println(country);
+		System.out.println(totMatches);
+		System.out.println(totRuns);
+	}
+}
+
+class Bowler extends Cricketer		//Now Bowler is the child class of Cricketer
+{
+	int totWickets;
+	
+	void setTotWickets(int totWickets)
+	{
+		this.totWickets = totWickets;
+	}
+	
+	void printTotWickets()
+	{
+		System.out.println(totWickets);
+	}
+}
+
+class CricketerDemo
+{
+	public static void main(String args[])
+	{
+		Cricketer c1 = new Cricketer();
+		c1.setDetails("Sachin","India",400);
+		c1.printDetails();
+		
+		Batsman bats1 = new Batsman();
+                bats1.setDetails("Risabh Pant","India",100);//will call parent class (Cricketer) setDetails()
+                bats1.setTotRuns(3000);	//will call child class (Batsman) setTotRuns()
+		//bats1.printDetails();	//will call parent class printDetails()
+		//bats1.printTotRuns();	//will call child class printTotRuns()
+		
+		bats1.printBatsDetails();	//will call child class' printBatsDetails()
+		
+		
+		Bowler bowl1 = new Bowler();
+		bowl1.setDetails("Bumrah","India",150);	//parent class' setDetails() called
+		bowl1.setTotWickets(350);	//child class' (Bowler) setTotWickets() called
+		bowl1.printDetails();		//parent class' printDetails() called
+		bowl1.printTotWickets();	//child class' (Bowler) printTotWickets() called
+		
+	}
+}
+
+OUTPUT:
+Sachin
+India
+400
+Risabh Pant
+India
+100
+3000
+Bumrah
+India
+150
+350
+
+=======================================================================================
+- Constructor is never inherited
+
+- Whenever any child class object is created, along with child class constructor, parent class is also called. The order of constructor calling is always from parent class to child class.
+
+
+class First
+{
+	int a;
+	
+	First()
+	{
+		System.out.println("Zero-arg const of First");
+		a = 1;
+	}
+}
+
+class Second extends First
+{
+	int b;
+	
+	Second()
+	{
+		System.out.println("Zero-arg const of Second");
+		b = 2;
+	}
+}
+
+public class ConstructorCallingDemo
+{
+	public static void main(String args[])
+	{
+		new Second();
+	}
+}
+
+
+OUTPUT:
+Zero-arg const of First
+Zero-arg const of Second
+
+=============================================================================
+
+Method Overriding
+--------------------
+
+Method of the parent class can be redefined in the child class with the same name and signature i.e. with the same name and arguments. 
+In the case of method overriding method name, argument type and number of arguments everything will be same in the child class.
+
+Example:
+
+class First
+{
+	void myFun(int x, int y)			//Overridden method
+	{
+		System.out.println("myFun of First");
+	}
+	
+	void anotherFun(int x)
+	{
+		System.out.println("anotherFun of First");
+	}
+}
+
+class Second extends First
+{
+	void myFun(int x, int y)		//Just comment this method and check out the output.
+	{
+		System.out.println("myFun of Second");
+	}
+}
+
+public class OverridingDemo
+{
+	public static void main(String args[])
+	{
+		Second s = new Second();
+		s.myFun(2,5);		//myFun of Second
+		s.anotherFun(5);	//anotherFun of First
+	}
+}
+
+OUTPUT:
+myFun of Second
+anotherFun of First
+
+========================================================================
+Difference between method overloading and method overriding
+
+-- Overloading happens inside the same class or child class but overriding happens inside the child class only.
+-- In the case of overloading and overriding, in both the cases method name will remain same but 
+in the case of overloading signature will differ mean arguments will differ but
+ in the case of overriding arguments will also remain same (type as well as no. of arguments).
+
+-- In the case of method overriding, return type can be changed in the child class but
+ that return type must be the subtype (covariant type) of the return type in the parent class.
+
+
+class First
+{
+}
+
+class Second extends First
+{
+}
+
+class Third
+{
+}
+
+class Demo
+{
+	First myFun()
+	{
+		First f = new First();
+		return f;
+	}
+}
+
+class Demo1 extends Demo
+{
+	Second myFun()		//As Second is child of First or we can say subtype of First
+	{
+		Second s = new Second();
+		return s;
+	}
+	
+}
+
+if we redefine as 
+
+Third myFun()		//It will give error as Third is not the child class of First.
+{
+}
+
+=======================================================================
+
+'super' keyword
+----------------
+
+'super' can be used to access the parent class members (data and method) from the child class. 
+'super' will always be used within the child class.
+
+class First
+{
+	int num = 5;
+	
+	void myFun(int x, int y)			//Overridden method
+	{
+		System.out.println("myFun of First");
+	}
+	
+	void anotherFun(int x)
+	{
+		System.out.println("anotherFun of First");
+	}
+}
+
+class Second extends First
+{
+	void myFun(int x, int y)		//Just comment this method and check out the output.
+	{
+		super.myFun(x,y);
+		System.out.println("myFun of Second");
+		System.out.println(super.num);	//System.out.println(num);
+	}
+}
+
+public class OverridingDemo
+{
+	public static void main(String args[])
+	{
+		Second s = new Second();
+		s.myFun(2,5);		//myFun of Second
+		s.anotherFun(5);	//anotherFun of First
+	}
+}
+
+
+OUTPUT:
+
+myFun of First
+myFun of Second
+5
+anotherFun of First
+
+================================================================
+
+class Cricketer
+{
+	String name;
+	String country;
+	int totMatches;
+	
+	void setDetails(String name, String country, int totMatches)
+	{
+		this.name = name;
+		this.country = country;
+		this.totMatches = totMatches;
+	}
+	
+	void printDetails()
+	{
+		System.out.println(name);
+		System.out.println(country);
+		System.out.println(totMatches);
+	}
+}
+
+class Batsman extends Cricketer		//Now Batsman is the child class of Cricketer
+{
+	int totRuns;
+	
+	void setDetails(String name, String country, int totMatches, int totRuns) //Method overloading
+	{
+		setDetails(name,country,totMatches);
+		this.totRuns = totRuns;
+	}
+	
+	void printDetails()		//Method overriding
+	{
+		super.printDetails();
+		System.out.println(totRuns);
+	}
+}
+
+class Bowler extends Cricketer		//Now Bowler is the child class of Cricketer
+{
+	int totWickets;
+	
+	void setDetails(String name, String country, int totMatches, int totWickets)
+	{
+		super.setDetails(name,country,totMatches);
+		this.totWickets = totWickets;
+	}
+	
+	void printDetails()
+	{
+		super.printDetails();
+		System.out.println(totWickets);
+	}
+}
+
+class CricketerDemo
+{
+	public static void main(String args[])
+	{
+		Batsman bats1 = new Batsman();
+                bats1.setDetails("Risabh Pant","India",100,3000);
+                bats1.printDetails();
+	}
+}
+
+OUTPUT:
+Risabh Pant
+India
+100
+3000
+
+==================================================================================
+
+Constructor calling using 'super'
+
+-- Always super class' zero-arg/default constructor will be called by default whenever any child class' object is created.
+-- But we can change that default constructor call by using 'super'
+-- If we call superclass constructor using 'super' keyword, it should always be the very first statement inside the constructor.
+-- We can not make superclass constructor call using 'super' inside any other method except child class constructor.
+
+class First
+{
+	int a;
+	
+	First ()
+	{
+		System.out.println("0-arg const of First");
+	}
+	
+	First(int a)			
+	{
+		System.out.println("1-arg const of First");
+		this.a = a;
+	}
+}
+
+class Second extends First
+{
+	int b;
+	
+	Second()
+	{
+		System.out.println("0-arg const of Second");
+	}
+	
+	Second(int a, int b)
+	{
+		super(a);		//superclass 1-arg constructor called. Must be the first statement.
+		//super();		//superclass 0-arg constructor called. Must be the first statement.
+		this.b = b;
+		System.out.println("2-arg const of Second");
+	}
+	
+	void fun()
+	{
+		//super();	//ERROR.
+	}
+}
+
+public class ConstructorCallUsingSuperDemo
+{
+	public static void main(String args[])
+	{
+		Second s = new Second(5,10);
+	}
+}
+
+
+OUTPUT:
+1-arg const of First
+2-arg const of Second
+========================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

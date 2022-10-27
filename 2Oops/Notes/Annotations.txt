@@ -1,0 +1,118 @@
+Annotation
+==================================================================================================
+
+Annotation enables to embed supplemental information into a source file. It does not change the actions of a program. It is also known as metadata. The annotation information can be used by various tools during both development and deployment.
+
+//A sample annotation type
+@interface MyAnno
+{
+	String str();
+	int val();
+
+}
+
+Members of MyAnno are str and val.
+
+@precedes the keyword interface and it tells the compiler that an annotation type is being declared.
+All annotations consist solely of method declarations.
+We don't provide bodies for these methods. Instead java implements these methods.
+The methods act like fields.
+
+An annotation can not include extends clause.
+All annotation types automatically extend the Annotation super interface which is defined in java.lang.annotation package.
+
+Any type of declaration can have an annotation associated with it. e.g. class, methods, fields, parameters and enum constants.
+Even annotation can be annotated.
+
+//Annotate a method
+
+@MyAnno (str = "Annotation Example", val = 100)
+public static void myFun()
+{
+	//code
+}
+
+
+Annotation Retention Policy
+===============================================================================================
+
+A retention policy determines at what point an annotation is discarded.
+
+There are three annotation policies defined in java.lang.annotation.RetentionPolicy:
+
+SOURCE
+CLASS
+RUNTIME
+
+
+Syntax to declare retention policy:
+@Retention(retention-policy)
+@interface AnnontationName
+{
+}
+
+Ex.
+@Retention(RetentionPolicy.RUNTIME)
+@interface MyAnno
+{
+	String str();
+	int val();
+}
+
+RetentionPolicy.SOURCE : An annotation with this policy is retained only in the source file and is discarded during compilation.
+
+RetentionPolicy.CLASS : An annotation with this policy is stored in the .class file during compilation but not available through the JVM during run time.
+
+RetentionPolicy.RUNTIME: An annotation with this policy is stored in the .class file during compilation and available through the JVM during run time. So, it offers the greatest annotation persistence.
+
+=====================================================================================================
+
+Sample Program: To get the annotation details at runtime.
+
+import java.io.*;
+import java.lang.reflect.*;		//For Method, Field, Constructor class
+import java.lang.annotation.*;		//For RetentionPolicy enumeration and @Retention annotation
+
+@Retention (RetentionPolicy.RUNTIME)
+@interface MyAnno
+{
+	String str();
+	int val();
+}
+
+
+class AnnotationDemo
+{
+	@MyAnno(str = "Annotation example", val = 100)
+	public void myFun(String str, int num)
+	{
+		System.out.println(str +" " + num);
+
+	}
+
+	public static void main (String args[]) throws NoSuchMethodException
+	{
+		
+                Class c = AnnotationDemo.class;
+                Method m = c.getMethod("myFun",String.class,int.class);
+		
+		//checking whether MyAnno annotation is present with the specific method refered by m which is myFun();
+		if(m.isAnnotationPresent(MyAnno.class))
+		{
+			System.out.println("MyAnno.class annotation is present with the method myFun.");
+			MyAnno anno = m.getAnnotation(MyAnno.class);
+                	System.out.println(anno.str() + "  "  + anno.val());
+		}
+		
+		
+	}
+}
+
+
+=====================================================================================================
+
+
+
+
+
+

@@ -1,0 +1,139 @@
+To create any class we use the keyword class.
+
+class = data + methods
+
+//Defining/creating class
+
+class Student
+{
+	int rollNo;
+	int age;
+	double marks;
+	
+	void printDetails()
+	{
+		System.out.println(rollNo + "," + age + "," + marks);
+	}	
+}
+
+
+//creating object
+-- To create the object we need to use the new keyword.
+
+new Student();		//This statement will create an object of Student class.
+
+Student stud1;		//stud1 is a reference variable and it will be used to keep the reference of Student 					object. It just creates a reference variable and not the object.
+
+stud1 = new Student();	// an Student object is created and its reference is stored in stud1.
+
+
+
+
+Student stud1;
+
+It says
+1. stud1 is a reference variable, not an object. It does not create an object.
+2. As it is a reference variable so it will be used to keep reference. 
+3. The question is - whose reference it will store?
+4. Answer is only the reference of Student class' object.
+
+The default value for any reference variable is NULL.
+
+
+
+class Employee
+{
+	int empId;
+	long contactNo;
+	double salary;
+}
+
+
+Employee emp1;
+
+emp1 = new Employee();
+
+Student stud1;
+stud1 = new Student();
+
+stud1 = new Employee();		//ERROR, stud1 will be used to keep reference of Student class object only
+
+-----------------------------------------------------------------------------------------------
+
+class Student
+{
+	int rollNo;
+	int age;
+	double marks;
+	
+	void printDetails()
+	{
+		System.out.println(rollNo + "," + age + "," + marks);
+	}	
+}
+
+NOTE: . (dot) is the member access operator which we will use to access the objects data and method.
+
+Student stud1 = new Student();
+stud1.rollNo = 1;
+stud1.age = 20;
+stud1.marks = 75.0;
+
+Student stud2 = new Student();
+stud2.roll = 2;
+stud2.age = 21;
+stud2.marks = 65.0;
+
+stud1.printDetails();
+
+stud2.printDetails();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

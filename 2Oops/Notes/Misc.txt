@@ -1,0 +1,34 @@
+Functional interface
+---------------------
+Interface having only one abstract method.
+
+interface MyInterface
+{
+	void myFun();
+}
+
+=========================================================
+
+Marker Interface
+-----------------
+Interface which contains no methods/constants. Used to add specific behaviour at runtime.
+
+interface MyInterface
+{
+}
+
+=========================================================
+class OuterClass
+{
+	class InnerClass
+	{
+	}
+}
+
+OuterClass can not access InnerClass data and methods.
+InnerClass can access OuterClass data and methods, even private data and methods also.
+
+OuterClass can have access specifier : public,default
+InnerClass can have access specifier : public,private,protected,default
+
+

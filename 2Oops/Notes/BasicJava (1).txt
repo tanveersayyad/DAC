@@ -1,0 +1,571 @@
+functions -> methods -> procdures
+
+function
+data on which function operates/works
+
+program => functions + data
+
+Inheritance => Parent child relationship
+
+Father has a car
+Son will also have that car
+Son has purchased bike/smart phones
+
+
+
+Cricketer
+{
+	name
+	country
+	
+	printName();
+	printCountry();
+}
+
+Batsman
+{
+	totalRuns;
+	printTotalRuns();
+}
+
+Bowler
+{
+	totalWickets;
+	printTotalWickets();
+}
+
+
+
+Batsman and Bowler class are child class of Cricketer.
+
+
+
+Employees
+{
+	empName;
+	empId;
+	department;
+	designation;
+	joiningDate;
+	gender;
+	contactNo;
+	accountNo;
+	commonRules;
+	salary;
+	address;
+	qualification;
+	emailId;
+	
+	printSalary();
+	printPersonalDetails();
+}
+
+RegularEmployee
+{
+	retirementDate;
+	payScale; 
+	rulesForRegularEmp;
+	
+	printRetirementDate();
+	printPayScale();
+}
+
+ContractBasedEmployee
+{
+	remainingYearsOfService;
+	consolidatedSalary;
+	rulesForContractBasedEmp;
+	
+	printRemainingYearsOfService();	
+}
+
+
+
+
+Shape
+{
+	calculateArea();
+}
+
+Rectangle
+{
+	calculateArea();
+}
+
+
+Square
+{
+	calculateArea();
+}
+
+
+Circle
+{
+	calculateArea();
+}
+
+
+
+Find area of a shape.
+Rectangle
+len,br
+area
+
+Square
+side
+area
+
+Circle
+radius
+area
+
+
+calculateShapeArea =>  either rectangle,square,circle shape calculation method.
+
+
+java code  => intermediate code (byte code) => jvm (java interpreter) => machine code
+
+
+javac MyFirstProgram.java => MyFirstProgram.class
+
+
+
+
+void fun()
+{
+}
+
+main()
+{
+	-----
+	-----
+	fun();
+	----
+	----
+	fun();
+	------
+	-------
+	
+}
+
+
+---------------------------------------------
+
+
+Everything in java comes inside a class.
+Starting point of any program execution is main () function.
+
+MyFirstProgram.java
+
+-- class name will be same as java file name.
+
+/** This program will print Hello World **/
+
+class MyFirstProgram
+{
+	/**
+	*@author Shiv Nath Kumar
+	*@param name takes name as input
+	*@param age takes the age as input
+	*@return returns nothing
+	**/
+	public static void myFun(String name, int age)
+	{
+		/*
+		* Following if condition is mandatory as it checks for some special case ... more details
+		*/
+		if(age < 18)
+		{
+			//Some logic here
+		}
+	}
+	
+	public static void main(String args[])
+	{
+		System.out.println("Hello World!!");
+	}
+}
+
+
+First step : compilation
+javac MyFirstProgram.java   (It will generate MyFirstProgram.class i.e. byte code)
+
+Second step : execution
+java MyFirstProgram
+
+//single line comment
+
+/*
+* Multi line comments
+*/
+
+comments are not the part of execution.
+
+
+
+
+/**
+** For code documentation
+**/
+
+javadoc -d <destination directory path> <sourcefile name>
+
+
+int a;			
+float b;
+
+data types says two things
+1st what type of data will be stored
+2nd How much memory will be occupied 
+to store the dta
+
+if we write 
+int a;
+1st it says that a will be used to store only integer type data
+2nd it will occupy 4 bytes(32 bits) of memory.
+
+Java is strongly typed language means - each variable will must have a data type.
+
+int a = 5;
+
+OR;
+
+int a;
+a = 5;
+
+double b = 23.5;
+String s = "Hello";
+
+a = b;
+a = s;
+
+int p;
+p = a;
+
+LEFT = RIGHT
+Right is assigned to Left.
+
+char ch;		//Will be used to store a single character only.
+ch = 'y';
+ch = 'n';
+ch = 'no';		//Error
+
+String str = "no";
+
+For String use double quote " "
+For char   use single quote ' '
+
+byte b;
+
+----------------------------------------------------
+
+Scope of a variable
+
+Scope just defines the life and accessibility of a variable. Means it just says from which location a particular variable can be accessed. It just says where a variable is known and where it is not known.
+
+
+
+void fun1()
+{
+	int num1;			//scope of num1 is inside fun1
+	num1 = 10;
+	System.out.println(num1);
+}
+
+void fun2()
+{
+	System.out.println(num1);
+}
+
+
+class ScopeDemo
+{
+        public static void main(String args[])
+        {
+                int x = 5;
+                int z;
+
+                {
+                        int y = 10;
+                        x = 20;
+                }
+                
+                z = 15;
+
+                System.out.println(x);
+                //System.out.println(y);                        // will give compilation error
+                System.out.println(z);			//variable z might not have been initialized
+        }
+}
+
+
+The variables which are declared inside a method are called local variables.
+The local variables must be initialized before its use. compiler says to initialize some value for the local varaible before its use.
+
+class ScopeDemo1
+{
+        public static void main(String args[])
+        {
+                int num;
+                num++;          //compilation error variable num might not have been initialized
+        }
+}
+
+-- We can not declare two variables with the same name within the same scope.
+Example:
+
+class ScopeDemo2
+{
+        public static void main(String args[])
+        {
+                int x = 5;
+
+                {
+                        double x = 10.5; 	//Compilation error.
+                }
+
+                System.out.println(x);
+        }
+}
+
+
+-- We can store either decimal,octal or hexa value in a integer variable. But when we print that variable it will always print decimal value.
+
+int a = 47;
+
+OR;
+
+int a = 057;
+
+OR;
+
+int a = 0x2F;
+
+sop (a) ; //It will print 47;
+
+--
+
+The data type of integer literals is int.
+The data type of float literals is double.
+
+---
+
+float = double;			//Error
+long = int;			//OK
+
+long num2 = 2300000000;		//error: integer number too large: 2300000000
+
+
+class LiteralsDemo2
+{
+        public static void main(String args[])
+        {
+                System.out.println("\"Hello Friends\"");                // prints "Hello Friends"
+        }
+}
+
+
+class LiteralsDemo2
+{
+        public static void main(String args[])
+        {
+                System.out.println("\"Hello Friends\"");                // "Hello Friends"
+
+                //char ch = 65;
+                //char ch = 'A';
+                //char ch = '\101';
+                char ch = '\u0041';			//Each one will assign literal 'A' to ch.
+                System.out.println(ch);
+        }
+}
+
+
+
+------------------------------------
+
+Data Conversion
+
+int a = 10;
+int x;
+long b = 20;
+
+x = a;				// int = int : Ok
+
+a = b;				// int = long : Error (lossy conversion)
+
+b = a;				// long = int : Widening conversion, compatible, Ok (automatic conversion) 
+
+
+
+a = (int) b;			// Narrowing conversion, OK
+
+We will cast the right side according to the left side variable data type.
+
+Widening conversion => Assigning small data type into big data type => We don't need typecasting
+Narrowing conversion => Assigning big data type into small data type => We need typcasting (possible lossy conversion)
+
+
+byte x;
+int y;
+
+x = (byte)y;		//Narrowing conversion
+
+
+int a = 260;  (a = 00000000 00000000 00000001 00000100)
+byte b;
+b = (byte) a;		//Narrowing conversion (b = 00000100)
+sop(b);			//will print 4;
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

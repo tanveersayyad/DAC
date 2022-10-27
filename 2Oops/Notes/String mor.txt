@@ -1,0 +1,60 @@
+String are basically sequence of charachters.
+String literals are kept always inside double quote. Ex. "Hello", "Welcome" etc.
+
+String s1 = "Welcome";
+String s2 = new String("Welcome");
+
+System.out.println(s1);	//prints Welcome
+System.out.println(s2);	//prints Welcome
+
+
+String Constant Pool
+--------------------
+
+String s1 = "Welcome"; //Occupies memory in constant pool
+
+String s2 = new String("Welcome"); //Occupies memory in heap area.
+
+String s3 = "Welcome";
+
+String s4 = new String("Welcome");
+
+In constant pool, there is no duplicate string but in heap there can be duplicate string. 
+
+Each time we use 'new' for creating String object, fresh memory space will be occupied in the heap.
+
+s1 == s3; //will return true
+s2 == s4; //will return false
+
+s1 == s2; //will return false
+
+
+String class overrides the equals method and does the deep comparison.
+
+s1.equals(s3);	//true
+s2.equals(s4);	//true
+s1.equals(s2);	//true
+
+===========================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
